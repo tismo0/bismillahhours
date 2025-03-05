@@ -1,3 +1,10 @@
+// Ajouter + ou - dans l'input
+function addSign(sign) {
+    let input = document.getElementById("timeInput");
+    input.value += " " + sign + " ";
+    input.focus();
+}
+
 // Fonction pour calculer les heures
 function calculate() {
     let input = document.getElementById("timeInput").value;
@@ -25,7 +32,7 @@ function computeTimeExpression(expression) {
     return `${sign}${String(finalHours).padStart(2, "0")}:${String(finalMinutes).padStart(2, "0")}`;
 }
 
-// Effet Matrice (Lettres qui tombent)
+// Effet Matrice amélioré (Lettres qui tombent avec glow)
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -34,21 +41,23 @@ canvas.height = window.innerHeight;
 
 const letters = "0123456789+-x÷=π∞";
 const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
+const columns = Math.floor(canvas.width / fontSize);
+const drops = Array(columns).fill(1);
 
 function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    ctx.fillStyle = "lime";
+    ctx.fillStyle = "rgba(0, 255, 0, 0.8)";
     ctx.font = fontSize + "px monospace";
-
+    
     for (let i = 0; i < drops.length; i++) {
         let text = letters[Math.floor(Math.random() * letters.length)];
         let x = i * fontSize;
         let y = drops[i] * fontSize;
 
+        ctx.shadowColor = "lime";
+        ctx.shadowBlur = 10;
         ctx.fillText(text, x, y);
 
         if (y > canvas.height && Math.random() > 0.975) {
