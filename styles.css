@@ -1,75 +1,67 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
+/* Fond noir avec effet Matrice */
 body {
-    background-color: #121212;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Canvas pour l'effet Matrice */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
+    z-index: -1;
 }
 
+/* Contenu principal */
 .container {
-    background: #1e1e1e;
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     text-align: center;
-    width: 300px;
+    width: 90%;
+    max-width: 400px;
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
 }
 
-h1 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
+/* Champ de texte */
 input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-    background: #333;
-    color: white;
-    font-size: 16px;
+    margin: 10px 0;
+    font-size: 18px;
+    border: 2px solid lime;
+    background: black;
+    color: lime;
+    text-align: center;
 }
 
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
+/* Bouton stylé */
 button {
-    padding: 10px;
-    width: 48%;
+    padding: 10px 20px;
+    background: lime;
+    color: black;
+    font-size: 18px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-}
-
-button:nth-child(1) {
-    background: #28a745;
-    color: white;
-}
-
-button:nth-child(2) {
-    background: #dc3545;
-    color: white;
+    transition: 0.3s;
 }
 
 button:hover {
-    opacity: 0.8;
+    background: darkgreen;
+    color: white;
 }
 
+/* Résultat */
 #result {
+    font-size: 22px;
     margin-top: 15px;
-    font-size: 18px;
     font-weight: bold;
+    color: lime;
 }
