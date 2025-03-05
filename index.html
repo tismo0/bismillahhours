@@ -8,18 +8,22 @@
 </head>
 <body>
     <canvas id="matrix"></canvas>
+    <img id="pythagore" src="pythagore.png" alt="Pythagore">
 
     <div class="container">
-        <h1>🕒 Calculateur d'Heures Avancé</h1>
-        <p>Ajoutez des heures avec les boutons "+" et "-"</p>
+        <h1>🕒 Calculateur d'Heures</h1>
+        <p>Ajoutez ou soustrayez deux heures</p>
         
         <div class="input-container">
-            <button onclick="addSign('+')">➕</button>
-            <input type="text" id="timeInput" placeholder="Ex: 2:30 + 1:45 - 0:15">
-            <button onclick="addSign('-')">➖</button>
+            <input type="time" id="time1">
+            <select id="operation">
+                <option value="+">➕</option>
+                <option value="-">➖</option>
+            </select>
+            <input type="time" id="time2">
         </div>
         
-        <button class="calculate-btn" onclick="calculate()">🧮 Calculer</button>
+        <button onclick="calculate()">🧮 Calculer</button>
         <div id="result">Résultat : --:--</div>
     </div>
 
