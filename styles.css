@@ -1,11 +1,13 @@
-/* Fond noir avec effet Matrice */
+/* Effet Matrice */
 body {
     margin: 0;
     overflow: hidden;
     font-family: Arial, sans-serif;
+    background: black;
+    color: white;
 }
 
-/* Canvas pour l'effet Matrice */
+/* Canvas pour effet Matrice */
 #matrix {
     position: fixed;
     top: 0;
@@ -15,45 +17,75 @@ body {
     z-index: -1;
 }
 
-/* Contenu principal */
+/* Conteneur principal */
 .container {
     position: relative;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
+    background: rgba(0, 0, 0, 0.85);
     padding: 20px;
-    text-align: center;
     width: 90%;
     max-width: 400px;
     margin: 100px auto;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    text-align: center;
 }
 
-/* Champ de texte */
+/* Champ d'entrée et boutons */
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
 input {
-    width: 90%;
+    width: 60%;
     padding: 10px;
-    margin: 10px 0;
     font-size: 18px;
     border: 2px solid lime;
     background: black;
     color: lime;
     text-align: center;
+    border-radius: 5px;
 }
 
-/* Bouton stylé */
 button {
-    padding: 10px 20px;
-    background: lime;
-    color: black;
-    font-size: 18px;
+    padding: 10px 15px;
+    font-size: 20px;
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 5px;
 }
 
 button:hover {
+    opacity: 0.8;
+}
+
+button:nth-child(1) {
+    background: #28a745;
+    color: white;
+}
+
+button:nth-child(3) {
+    background: #dc3545;
+    color: white;
+}
+
+/* Bouton Calcul */
+.calculate-btn {
+    background: lime;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+}
+
+.calculate-btn:hover {
     background: darkgreen;
     color: white;
 }
