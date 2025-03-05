@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur d'Heures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculateur d'Heures</h1>
+        <input type="time" id="time1" value="00:00">
+        <input type="time" id="time2" value="00:00">
+        <div class="buttons">
+            <button onclick="calculateTime('add')">➕ Addition</button>
+            <button onclick="calculateTime('subtract')">➖ Soustraction</button>
+        </div>
+        <div id="result">Résultat : --:--</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
