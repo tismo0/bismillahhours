@@ -1,35 +1,26 @@
-// Ajouter + ou - dans l'input
-function addSign(sign) {
-    let input = document.getElementById("timeInput");
-    input.value += " " + sign + " ";
-    input.focus();
-}
-
 // Fonction pour calculer les heures
 function calculate() {
-    let input = document.getElementById("timeInput").value;
-    let result = computeTimeExpression(input);
-    document.getElementById("result").innerText = "Résultat : " + result;
-}
+    let time1 = document.getElementById("time1").value;
+    let time2 = document.getElementById("time2").value;
+    let operation = document.getElementById("operation").value;
+    
+    if (!time1 || !time2) {
+        document.getElementById("result").innerText = "Veuillez entrer deux heures.";
+        return;
+    }
 
-// Fonction pour parser et calculer une suite d'heures
-function computeTimeExpression(expression) {
-    let terms = expression.match(/[-+]?\s*\d+:\d+/g);
-    if (!terms) return "Format invalide";
+    let [h1, m1] = time1.split(":").map(Number);
+    let [h2, m2] = time2.split(":").map(Number);
+    
+    let totalMinutes1 = h1 * 60 + m1;
+    let totalMinutes2 = h2 * 60 + m2;
+    let resultMinutes = operation === "+" ? totalMinutes1 + totalMinutes2 : totalMinutes1 - totalMinutes2;
+    
+    let finalHours = Math.floor(Math.abs(resultMinutes) / 60);
+    let finalMinutes = Math.abs(resultMinutes) % 60;
+    let sign = resultMinutes < 0 ? "-" : "";
 
-    let totalMinutes = 0;
-
-    terms.forEach(term => {
-        let sign = term.includes("-") ? -1 : 1;
-        let [hours, minutes] = term.replace(/\s+/g, "").split(":").map(Number);
-        totalMinutes += sign * (hours * 60 + minutes);
-    });
-
-    let finalHours = Math.floor(Math.abs(totalMinutes) / 60);
-    let finalMinutes = Math.abs(totalMinutes) % 60;
-    let sign = totalMinutes < 0 ? "-" : "";
-
-    return `${sign}${String(finalHours).padStart(2, "0")}:${String(finalMinutes).padStart(2, "0")}`;
+    document.getElementById("result").innerText = `Résultat : ${sign}${String(finalHours).padStart(2, "0")}:${String(finalMinutes).padStart(2, "0")}`;
 }
 
 // Effet Matrice amélioré (Lettres qui tombent avec glow)
