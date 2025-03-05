@@ -7,14 +7,31 @@ body {
     color: white;
 }
 
-/* Canvas pour effet Matrice */
+/* Canvas pour l'effet Matrice */
 #matrix {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    z-index: -2;
+}
+
+/* Image de Pythagore */
+#pythagore {
+    position: fixed;
+    width: 200px;
+    opacity: 0.05;
     z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: movePythagore 10s infinite alternate ease-in-out;
+}
+
+@keyframes movePythagore {
+    0% { transform: translate(-50%, -50%) translateX(-20px); }
+    100% { transform: translate(-50%, -50%) translateX(20px); }
 }
 
 /* Conteneur principal */
@@ -31,7 +48,7 @@ body {
     text-align: center;
 }
 
-/* Champ d'entrée et boutons */
+/* Champ d'entrée */
 .input-container {
     display: flex;
     align-items: center;
@@ -40,8 +57,7 @@ body {
     margin-bottom: 10px;
 }
 
-input {
-    width: 60%;
+input, select {
     padding: 10px;
     font-size: 18px;
     border: 2px solid lime;
@@ -52,40 +68,17 @@ input {
 }
 
 button {
-    padding: 10px 15px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 5px;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-button:nth-child(1) {
-    background: #28a745;
-    color: white;
-}
-
-button:nth-child(3) {
-    background: #dc3545;
-    color: white;
-}
-
-/* Bouton Calcul */
-.calculate-btn {
+    padding: 10px 20px;
     background: lime;
     color: black;
     font-size: 18px;
-    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
     margin-top: 10px;
-    display: block;
-    width: 100%;
 }
 
-.calculate-btn:hover {
+button:hover {
     background: darkgreen;
     color: white;
 }
